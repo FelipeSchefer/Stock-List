@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermarket</title>
+    <style>
+        #form {
+            display: inline-block;
+        }
+
+        table {
+            border-color: black;
+            background-color: gray;
+        }
+
+        table th {
+            background-color: lightgreen;
+        }
+
+        table td input {
+            background-color: lightgrey;
+        }
+
+        #buy,
+        .btn {
+            background-color: lightcoral;
+            border-radius: 5px;
+            margin: 5px 0 5px 0;
+            width: 50%;
+        }
+
+        #buy:hover {
+            background-color: lightblue;
+        }
+
+        #div {
+            display: flex;
+        }
+
+        #tableList{
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            background-color: lightpink;
+            border: 1px rgb(255, 146, 164) solid;
+        }
+        #tableList .tr{
+            display: flex ;
+            margin: 0;
+            padding: 0;
+            border: 1px rgb(255, 146, 164) solid;
+        }
+        #tableList .td{
+            margin: 0;
+            padding: 0;
+            border: 1px rgb(255, 146, 164) solid;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <form name="form" id="form" action="store.php" method="POST">
+            <table border="1">
+                <tr>
+                    <th>PRODUCTS NAME</th>
+                    <th>PRICE</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="product01" name="product01"></td>
+                    <td><input type="text" id="price01" name="price01"> </td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="product02" name="product02"></td>
+                    <td><input type="text" id="price02" name="price02"> </td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="product03" name="product03"></td>
+                    <td><input type="text" id="price03" name="price03"> </td>
+                </tr>
+            </table>
+            <div id="div">
+                <button class="btn" type="submit" id="buy">Enter</button>
+                <!-- <button class="btn" id="call" name="callList">Call list</button> -->
+            </div>
+        </form>
+    </section>
+    <br>
+    <p id="mensage"></p>
+
+
+    <script>
+        document.getElementById('form').addEventListener('submit', store);
+
+        function store() {
+            // varibles from form
+            var product01 = document.form.product01.value;
+            var price01 = document.form.price01.value;
+            var product02 = document.form.product02.value;
+            var price02 = document.form.price02.value;
+            var product03 = document.form.product03.value;
+            var price03 = document.form.price03.value;
+
+            if (product01 != "" && price01 != "" && product02 != "" && price02 != "" && product03 != "" && price03 != "") {
+                document.getElementById("mensage").innerHTML = "this is the current store list";
+            } else {
+                document.getElementById("mensage").innerHTML = "you must fill out the form";
+            }
+        }
+    </script>
+</body>
+
+</html>
